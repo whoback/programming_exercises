@@ -24,13 +24,22 @@
 # • Modify the program so it also supports the Kelvin scale.
 
 def to_fahrenheit():
-	print('Fahrenheit')
+	temp_in_celcius = int(input('Please enter the temperature in Celsius: '))
+	converted_to_fahrenheit = (temp_in_celcius * 9 / 5) + 32
+	# print('The temperature in Fahrenheit is: ' + str(converted_to_fahrenheit))
+	print_results('Fahrenheit', converted_to_fahrenheit)
 
 def to_celcius():
-	print('Celsius')
+	temp_in_fahrenheit = int(input('Please enter the temperature in Fahrenheit: '))
+	converted_to_celcius = (temp_in_fahrenheit - 32) * 5 / 9
+	# print('The temperature in Celsius is: ' + str(converted_to_celcius))
+	print_results('Celcius', converted_to_celcius)
 
-cel_strings = ['c', 'C']
-far_strings = ['f', 'F']
+
+def print_results(string, temp):
+	print('The temperature in %s is:%3d degrees'%(string, temp))
+
+
 def which_key(conversion_choice):
 	if conversion_choice in cel_strings:
 		to_celcius()
@@ -40,11 +49,14 @@ def which_key(conversion_choice):
 		print('neither')
 
 
+cel_strings = ['c', 'C']
+far_strings = ['f', 'F']
+
 conversion_choice = str(input('Press C to convert from Fahrenheit to Celsius. \n''Press F to convertfrom Celsius to Fahrenheit. \n''Your choice: '))
 
 which_key(conversion_choice)
 
-# if conversion_choice == 'C' or 'c': 
-# 	temperature_input = input('Please enter the temperature in Celsius: ')
-# elif conversion_choice == 'F' or 'f': 
-# 	temperature_input = input('Please enter the temperature in Fahrenheit: ')
+
+
+
+
