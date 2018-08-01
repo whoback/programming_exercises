@@ -30,17 +30,27 @@ def conversion_choice():
 	global conversion_choice
 	
 	while conversion_choice not in cel_strings and conversion_choice not in far_strings:
-		conversion_choice = str(input('Press C to convert from Fahrenheit to Celsius. \n''Press F to convertfrom Celsius to Fahrenheit. \n''Your choice: '))
+		conversion_choice = str(input('Press C to convert from Fahrenheit to Celsius. \n''Press F to convert from Celsius to Fahrenheit. \n''Your choice: '))
 
 	return(conversion_choice)
 
 def to_fahrenheit():
-	temp_in_celcius = int(input('Please enter the temperature in Celsius: '))
+	while True:
+		try:
+			temp_in_celcius = int(input('Please enter the temperature in Celsius: '))
+			break
+		except Exception as e:
+			print('You must enter the temperature as a number.')
 	converted_to_fahrenheit = (temp_in_celcius * 9 / 5) + 32
 	print_results('Fahrenheit', converted_to_fahrenheit)
 
 def to_celcius():
-	temp_in_fahrenheit = int(input('Please enter the temperature in Fahrenheit: '))
+	while True:
+		try:
+			temp_in_fahrenheit = int(input('Please enter the temperature in Fahrenheit: '))
+			break
+		except Exception as e:
+			print('You must enter the temperature as a number.')
 	converted_to_celcius = (temp_in_fahrenheit - 32) * 5 / 9
 	print_results('Celcius', converted_to_celcius)
 
